@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EVO test task 2</title>
+</head>
+<body>
+<h1>Будь ласка, введіть ім'я у форму і отримайте "Привіт"</h1>
+<form method="post" action="/add_name">
+    <input type="text" name="Insert your name">
+    <button type="submit">Привітатися</button>
+</form>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <p>{{ message }}</p>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+{% for name in names %}
+<div>{{name}}</div>
+{% endfor %}
+<a href="{{url_for('main')}}">Цікаво, хто вже бував тут? Подивись!</a>
+</body>
+</html>
